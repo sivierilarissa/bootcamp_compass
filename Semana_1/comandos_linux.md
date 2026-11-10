@@ -19,7 +19,11 @@
   * `usermod -aG sudo <usuario>`: Adiciona o usuario ao grupo sudo para conceder direitos administrativos.
 ---
 * **Comandos principais**
+* `ls`: Lista os arquivos daquele diretório
+* `ls -a`: lista até os arquivos ocultos do diretório
+* `ls -lh`: ls lista os arquivos e diretórios. (-l exibe os detalhes dos arquivos, incluindo tamanho. -h apresenta os tamanhos em formato legível por humanos (KB, MB, GB)).
 * `apt` (Advanced Package Tool):Gerenciador de alto nivel do Debian/Ubuntu.
+* `sudo`:serve para executar comandos com privilégios de administrador no Linux.
 * `sudo apt update`: Atualiza a lista dos repositorios oficiais.
 * `sudo apt-get install <pacote>`: Sintaxe classica de instalacao.
 * `sudo apt-cache search <termo>`: Procura por pacotes nos repositorios locais.
@@ -29,21 +33,40 @@
 * `help`, `help alias`, `help cd`, `ls --help`: comandos de ajuda
 * `apropos <termo>`: Procura por palavras-chave na base de manuais do sistema.
 * `man man`, `man 1 passwd`, `man -k <termo>`, `man -w <comando>`: consultas de manuais
+* `mkdir`nome : criar um novo diretório 
 * `mkdir` (`-p`): criacao de pastas e para subpastas em cadeia, uso de aspas para nomes com espaco. 
-* `rmdir`, `rm -rv`: remover
-* `cp -v`, `cp -rv`, `cp -iv`: copia de diretorios
+* `touch` nome: criar um novo arquivo vazio. 
+* `rmdir`:remove diretório
+* `rm -r`: remove diretorios com conteudo
+* `rm`: remover arquivo
+* `rm -i`: pede a confirmacao antes da exclusao
+* `cp <arquivo de origem> <nome do arquivo>`: copiar arquivo
+* `cp -v`: exibe na tela os arquivos que estao sendo copiados
+* `cp -rv`: copia diretorios e todo o seu conteudo, mostrando o processo
+* `cp -iv`: Exibe os arquivos copiados e pergunta antes de sobrescrever um arquivo existente (interactive)
 * `mv -v`: movimentacao
 * `diff <dir1> <dir2>`, `rsync -r <dir1/> <dir2>`: Sincronizacao e Comparacao.
 * `stat <arquivo>`: Exibe metadados detalhados (inodes, acessos, permissoes).
 * `ln <origem> <link>`: Cria um Link Fisico (aponta direto para o inode).
 * `ln -s <origem> <link>`: Cria um Link Simbolico / Atalho (aponta para o caminho do arquivo).
-* `find <diretorio> -name "<padrao>"`: Busca arquivos recursivamente.
+* `find <diretorio> -name "<padrao>"`: Busca arquivos. 
+* `find . -name ".txt"`: procurar arquivos, o . é no diretório atual, -name define o nome que será pesquisado e "*.txt"procura os arquivos que terminam nesse formato e o * representa qualquer sequencia de caracteres. 
 * `cat <arquivo>`: Exibe todo o conteudo de um arquivo na tela.
+* `cat -n`: exibe o arquivo com numero de linha
 * `head -n <N>`: Mostra as primeiras N linhas de um arquivo de dados.
 * `tail -n <N>`: Mostra as ultimas N linhas (`tail -f` acompanha logs em tempo real).
 * `wc -l`: Conta o total de linhas de um arquivo.
 * `curl`: Realiza requisicoes web ou download de arquivos via linha de comando.
-
+* `which`: Which + comando localiza o comando armazenado no sistema
+* `sort`: Lê o conteúdo do arquivo linha por linha e reorganiza as linhas em ordem alfabética (ou numérica), usando o -r inverte a ordem
+* `env`: Lista todas as variáveis de ambiente atuais da sessão do terminal.
+* `chown`: alterar proprietário + novo proprietario + arquivo
+* `cut`: extrai as partes de cada linha de um arquivo
+  * `cut -d ' ' -f 1 `: extrai as partes de cada linha de um arquivo e define espaco como delimitador e -f 1 seleciona apenas o primeiro campo
+* `tr`: transforma ou substitui caracteres
+  * `tr '[:lower]' '[:upper]'<`: transforma ou substitui caracteres, lower letras minusculas (ou a-Z) e uppper (ou A-z) letras maiusculas, < direciona o conteudo do arquivo para o comando. 
+* `uniq`: remove as linhas duplicadas que aparecem uma logo após a outra e exibe o resultado no terminal, sem alterar o arquivo original.
+  * `uniq -c`: -c conta quantas vezes cada linha aparece e exibe o número ao lado.
 * **Navegaçao de Diretorios:**
   * `cd <pasta>`: Entra em um diretorio especificado.
   * `cd ..`: Sobe um nivel na arvore de pastas (vai para a pasta pai).
@@ -51,6 +74,7 @@
   * `cd ~` ou `cd`: Vai diretamente para a pasta pessoal do usuario (`/home/usuario`).
   * `pwd`: Mostra o caminho absoluto do diretorio atual (Print Working Directory).
   * `echo $OLDPWD`: Imprime o caminho da pasta onde o usuario estava anteriormente.
+  * `
 
 * **Leitura e Manipulacao de Texto:** 
 * `cat`: exibe todo conteudo de um arquivo de texto direto no terminal
@@ -61,11 +85,12 @@
     * `wc -w`: conta as palavras
     * `wc -c`: conta o numero de bytes (caracteres)
 * `grep`: filtro para busca de texto, busca por palavras chave. 
-    * `grep -i`: busca o termo
+    * `grep -i "termo"`: busca o termo e o -i ignora maiusculas e minusculas 
     * `grep -v`: inverte a busca, exibe apenas o que nao contem o termo
 * `nvim`/`vim` (`:syntax on/off`): editores de texto no terminal. sintax on ativa destaque de sintaxe colorido, off desativa as cores
 * `dquote` (`" "`): protecao de textos no shell 
 * `echo`: imprime textos, valores, na saida do terminal
+* `echo "conteúdo que será escrito" > "nome do arquivo"`: exibe o texto, > direciona o conteúdo para um arquivo (cria ou substitui).
 *  `echo $SHELL`: exibe o caminho absoluto do interpretador de comandos (shell)
 * `zsh`: (Z Shell) interpretador de comandos avancado e altamente customizavel que incorpora recursos do Bash, Ksh e Tcsh
 
@@ -114,10 +139,11 @@
   * **Caminho Relativo:** Inicia a partir do diretorio atual ate onde voce vai. 
 ---
 * **Permissoes de Arquivos & Permissoes Octais**
-* **Modo Simbolico:** `chmod o-x`, `chmod o+x`, `chmod -x <diretorio>`.
+* **Modo Simbolico:** `chmod o-x` (retirar permissao de execucao de outros usuarios), `chmod o+x`(adicionar permissao de execucao para outros usuarios), `chmod -x <diretorio>` (retirar permissao de execucao de todos os usuarios).
 * **Modo Octal:** `chmod 755 script.sh` (para pastas e scripts), `chmod 644 dados.csv` (para arquivos de dados).
 
 No Linux, as permissoes de arquivos e diretorios sao lidas da esquerda para a direita em 3 blocos de usuarios:
+* `ls -l`: consulta as permissoes
 1. **u** (user / dono): O proprietario do arquivo.
 2. **g** (group / grupo): O grupo associado ao arquivo.
 3. **o** (others / outros): Qualquer pessoa que nao seja o dono e nao pertencao ao grupo.
