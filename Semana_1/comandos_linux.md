@@ -219,13 +219,15 @@ SETUID (4 / `u+s`), SGID (2 / `g+s`), STICKY BIT (1 / `+t`).
 ---
 * **Gerenciamento de Processos & Prioridades**
 * `ps`: lista os processos em execucao
-* `ps a`: Lista os processos de todos os usuarios que possuem um terminal associado
-* `ps ax`: Lista absolutamente todos os processos em execucao no sistema, incluindo servicos que rodam em segundo plano.
+* `ps -a`: Lista os processos de todos os usuarios que possuem um terminal associado
+* `ps -ax`: Lista absolutamente todos os processos em execucao no sistema, incluindo servicos que rodam em segundo plano.
 * `ps ax | grep`: Combina a listagem completa de processos com o filtro grep para encontrar um processo especifico pelo nome.
 * `pidof`: Retorna diretamente o numero de identificacao (PID) de um processo especifico buscando pelo seu nome exato.
 * `pgrep`: Filtra e lista os PIDs dos processos cujos nomes correspondem ao termo ou padrao pesquisado.
 * `top`: Exibe uma interface interativa em tempo real com os processos ativos no sistema, mostrando o consumo de CPU, memoria RAM, tempo de execucao e prioridades.
 * `kill <PID>`: forca o encerramento.
+* `df -h`: df mostra o espaco disponivel e utilizado de cada sistema de arquivos, e o -h exibe os tamanhos em formatos legíveis. 
+* `du -sh`: analisa e exibe o espaco em disco utilizado por arquivos e diretorios, o -s exibe apenas o tamanho total e o -h apresenta os tamanhos em formatos legiveis. 
 
 * **Prioridades (Valores Nice):** 
 Escala de **-20** (maxima prioridade) a **19** (minima prioridade). 
@@ -249,11 +251,18 @@ O valor padrao e **0**. Quanto maior o numero negativo, maior e a exigencia de r
  * `systemd-cgtop`: monitoramento de consumo em tempo real. * `ls /etc/systemd/system`: links simbolicos das unidades.
 ---
 * **Des/compactadores, Des/empacotadores & Analise de Espaco**
-* **Conceito de Empacotamento:** O comando `tar -cvf arq.tar /pasta` empacota os arquivos em um unico item antes da compactacao. Isso e necessario porque compactadores isolados (`gzip`, `bzip2`, `xz`) nao concatenam multiplos arquivos por conta propria.
+* **Conceito de Empacotamento
+* `tar -cvf documento diretorio`: tar é o utilitário padrão para empacotar múltiplos arquivos e diretórios em um único arquivo. -c cria um novo arquivo compactado, -v exibe no terminal a lista de arquivos que estao sendo processados, -f especifica que o proximo argumento será o nome do arquivo gerado. 
+* `tar -tvf`: verificar o conteudo do arquivo
+* `tar -xf`: extrair o arquivo
+* `gzip`:  compactar documentos como gzip
+* `gunzip`: descompactar o arquivo compactado
+
 * **Algoritmos de Compactacao Integrados ao Tar:**
   * `-z`: Usa o `gzip` (opcao `-k` no gzip mantem o arquivo original intacto).
   * `-j`: Usa o `bzip2` (taxa de compressao maior que o gzip).
   * `-J`: Usa o `xz` (maior taxa de compressao entre todos, utilizado no Kernel Linux).
+
 
 * **Descompactando com Tar (Substituindo o `-c` por `-x`):** `tar -xzvf` (`.tar.gz`), `tar -xjvf` (`.tar.bz2`), `tar -xJvf` (`.tar.xz`).
 
