@@ -307,7 +307,7 @@ HAVING COUNT(*) > 100;
 ## 11. Junções de Tabelas (JOINS)
 Utilizadas para combinar colunas de uma ou mais tabelas com base em uma condição de correspondência.
 
-![Esquema dos Joins em SQL](./img/sql_join.jpq)
+![Esquema dos Joins em SQL](sql_join.jpg)
 
 * `LEFT JOIN`: Retorna todos os registros da tabela da esquerda e os correspondentes da tabela da direita.
 * `INNER JOIN`: Retorna apenas os registros que possuem correspondência em ambas as tabelas.
