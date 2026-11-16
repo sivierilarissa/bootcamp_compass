@@ -444,6 +444,3 @@ WHERE status_profissional = 'estagiario';
 ```
 ```
 
----
-
-Your PostgreSQL training notes have been successfully consolidated and polished into a clean Markdown file. Let me know if you are ready to create the next topics or push this to your repository!
