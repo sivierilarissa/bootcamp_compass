@@ -1,4 +1,4 @@
-# Treinamento PostgreSQL + SQL
+# Treinamento - PostgreSQL + SQL
 
 ## Sumário
 

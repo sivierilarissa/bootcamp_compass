@@ -1,4 +1,4 @@
-# Banco de Dados: da Modelagem ao SQL com PostgreSQL
+# Banco de Dados - da Modelagem ao SQL com PostgreSQL
 
 ## Sumário
 

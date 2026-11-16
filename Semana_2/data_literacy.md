@@ -1,4 +1,4 @@
-# Data Literacy: IA para Dados
+# Data Literacy - IA para Dados
 
 ## Sumário
 
