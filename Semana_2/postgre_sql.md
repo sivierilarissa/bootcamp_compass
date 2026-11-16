@@ -443,4 +443,3 @@ SET professional_status = 'intern'
 WHERE status_profissional = 'estagiario';
 ```
 ```
-
