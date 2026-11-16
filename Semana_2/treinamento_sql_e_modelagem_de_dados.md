@@ -1,4 +1,4 @@
-# Banco de Dados: Da Modelagem à SQL com PostgreSQL
+# Banco de Dados: Da Modelagem a SQL com PostgreSQL
 
 ## Projeto de Banco de Dados
 Um projeto de banco de dados passa por quatro etapas principais:
@@ -8,8 +8,8 @@ Um projeto de banco de dados passa por quatro etapas principais:
 4. **Modelo Físico:** Tabelas criadas via comandos SQL.
 
 ### Elementos do Modelo Conceitual
-* **Entidade:** Objeto do mundo real ou conceitual (substantivo, ex.: professor, aluno).
-* **Atributo:** Propriedade ou característica de uma entidade (ex.: nome, idade).
+* **Entidade:** Objeto do mundo real ou conceitual (substantivo, ex.: professor, aluno). - Tabela
+* **Atributo:** Propriedade ou característica de uma entidade (ex.: nome, idade). - Coluna
 * **Relacionamento:** Associação entre entidades (identificado por verbos ou preposições).
   * **Cardinalidade:** Grau de relacionamento ($1:1$, $1:N$, $N:M$).
 
@@ -22,8 +22,12 @@ Um projeto de banco de dados passa por quatro etapas principais:
   * *Uso prático:* Interpretação de textos, visualização assistida por prompts, análise de planilhas e geração de hipóteses.
 
 ### Tipos de Variáveis e Dados
-* **Qualitativas:** Descrevem categorias ou qualidades (Nominais sem ordem, Ordinais com ordem).
-* **Quantitativas:** Mensuráveis numericamente (Discretas inteiras, Contínuas fracionárias).
+* **Qualitativas:** Descrevem categorias ou qualidades 
+  * Nominais:  sem ordem
+  * Ordinais: com ordem
+* **Quantitativas:** Mensuráveis numericamente 
+  * Discretas: número inteiro 
+  * Contínuas: número decimal 
 * **Estruturados vs. Não Estruturados:** Dados em tabelas/linhas/colunas vs. textos, áudios, imagens e vídeos.
 * **Estatística Descritiva:** Média (valor típico), Mediana (ponto central), Moda (mais comum) e Desvio Padrão (consistência/dispersão).
 * **Correlação vs. Causalidade:** Correlação indica que variáveis se movimentam juntas; causalidade exige comprovação de que uma variável causa diretamente o efeito na outra.
